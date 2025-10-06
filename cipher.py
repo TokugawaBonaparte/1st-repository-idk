@@ -1,17 +1,16 @@
 def keyword_cipher(key : str,msg : str):
-    nkey = []
-    nsetkey= set(key)
+    new_key = []
     for i in key:
-        if nkey.count(i) < 1:
-            nkey.append(i)
-    alph = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    naplh = [i for i in alph if i not in nkey]
-    nkey.extend(naplh) # unique letters only 
-    nmsg = list(msg)
-    translator = dict(zip(alph,nkey))
+        if new_key.count(i) < 1:
+            new_key.append(i)
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    new_alpbhabet = [i for i in alphabet if i not in new_key]
+    new_key.extend(new_alpbhabet) # unique letters only 
+    new_msg = list(msg)
+    translator = dict(zip(alphabet,new_key)) # key - abcd , value - corresponding cipher
     for i in range(len(msg)):
         if msg[i] in translator:
             ind = translator.get(msg[i])
-            nmsg[i] = ind           
-    return ''.join(nmsg)
+            new_msg[i] = ind           
+    return ''.join(new_msg)
 print(keyword_cipher('purplepineapple','abc'))
